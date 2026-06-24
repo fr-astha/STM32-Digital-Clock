@@ -21,25 +21,23 @@ Implemented a lightweight SSD1306 driver to transmit frame buffer data efficient
 
 #Project Structure
 
-├── Core/
-│   ├── Inc/                       # Header Files (.h)
-│   │   ├── fonts.h                # Custom font character maps for the OLED
-│   │   ├── gpio.h / i2c.h / rtc.h # Peripheral initialization headers
-│   │   ├── ssd1306.h              # SSD1306 OLED command & function declarations
-│   │   ├── ssd1306_defines.h      # Screen dimensions and register macro definitions
-│   │   └── main.h                 # Global macros and pin definitions
-│   │
-│   └── Src/                       # Source Files (.c)
-│       ├── main.c                 # Main application entry point & superloop
-│       ├── fonts.c                # Font pixel arrays for drawing text/numbers
-│       ├── gpio.c / i2c.c / rtc.c # Peripheral control & configuration implementations
-│       ├── ssd1306.c              # Custom display driver (I2C pixel buffer manipulation)
-│       └── stm32f1xx_it.c         # Hardware interrupt service routines (ISR)
-│
-├── Drivers/                       # STM32F1xx HAL (Hardware Abstraction Layer) libraries
-├── Startup/                       # Assembly startup code for MCU boot sequences
-├── clock.ioc                      # STM32CubeMX graphical configuration project file
-└── STM32F103C8TX_FLASH.ld         # Linker script for memory mapping (Flash/SRAM bounds)
+Core/
+Inc/                       # Header Files (.h)
+fonts.h                # Custom font character maps for the OLED
+gpio.h / i2c.h / rtc.h # Peripheral initialization headers
+ssd1306.h              # SSD1306 OLED command & function declarations
+ssd1306_defines.h      # Screen dimensions and register macro definitions
+main.h                 # Global macros and pin definitions
+Src/                       # Source Files (.c)
+main.c                 # Main application entry point & superloop
+fonts.c                # Font pixel arrays for drawing text/numbers
+gpio.c / i2c.c / rtc.c # Peripheral control & configuration implementations
+ssd1306.c              # Custom display driver (I2C pixel buffer manipulation)
+stm32f1xx_it.c         # Hardware interrupt service routines (ISR)
+Drivers/                       # STM32F1xx HAL (Hardware Abstraction Layer) libraries
+Startup/                       # Assembly startup code for MCU boot sequences
+clock.ioc                      # STM32CubeMX graphical configuration project file
+STM32F103C8TX_FLASH.ld         # Linker script for memory mapping (Flash/SRAM bounds)
 
 
 #Steps to Build the Project
