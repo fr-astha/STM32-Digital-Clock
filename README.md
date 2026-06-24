@@ -3,10 +3,14 @@
 A precise digital clock built on the STM32 microcontroller platform. This project leverages the micro's internal Real-Time Clock (RTC) peripheral for accurate timekeeping and interfaces with an SSD1306 OLED display via the I2C protocol to render a real-time, low-power user interface.
 
 #Hardware Components:
+
 Microcontroller: STM32F103C8T6, Display: 0.96-inch SSD1306 OLED (128x64 resolution), USB: ST Link V2
 
-#Toolchain: 
-STM32CubeMX - Used for graphical pinout configuration, clock tree setup, and generating the baseline initialization C code for the I2C and RTC peripherals. STM32CubeIDE (version 2.1.1) - Used for writing the core clock logic, managing the OLED driver files, compiling the C codebase, and debugging/flashing the application via the ST-LINK interface.
+#Toolchain:
+
+STM32CubeMX - Used for graphical pinout configuration, clock tree setup, and generating the baseline initialization C code for the I2C and RTC peripherals. 
+
+STM32CubeIDE (version 2.1.1) - Used for writing the core clock logic, managing the OLED driver files, compiling the C codebase, and debugging/flashing the application via the ST-LINK interface.
 
 #System Architecture & Features
 1. Internal RTC Peripheral
@@ -22,22 +26,37 @@ Implemented a lightweight SSD1306 driver to transmit frame buffer data efficient
 #Project Structure
 
 Core/
-Inc/                       # Header Files (.h)
-fonts.h                # Custom font character maps for the OLED
-gpio.h / i2c.h / rtc.h # Peripheral initialization headers
-ssd1306.h              # SSD1306 OLED command & function declarations
-ssd1306_defines.h      # Screen dimensions and register macro definitions
-main.h                 # Global macros and pin definitions
-Src/                       # Source Files (.c)
-main.c                 # Main application entry point & superloop
-fonts.c                # Font pixel arrays for drawing text/numbers
-gpio.c / i2c.c / rtc.c # Peripheral control & configuration implementations
-ssd1306.c              # Custom display driver (I2C pixel buffer manipulation)
-stm32f1xx_it.c         # Hardware interrupt service routines (ISR)
-Drivers/                       # STM32F1xx HAL (Hardware Abstraction Layer) libraries
-Startup/                       # Assembly startup code for MCU boot sequences
-clock.ioc                      # STM32CubeMX graphical configuration project file
-STM32F103C8TX_FLASH.ld         # Linker script for memory mapping (Flash/SRAM bounds)
+Inc/ ---Header Files (.h)
+
+fonts.h --- Custom font character maps for the OLED
+
+gpio.h / i2c.h / rtc.h --- Peripheral initialization headers
+
+ssd1306.h --- SSD1306 OLED command & function declarations
+
+ssd1306_defines.h --- Screen dimensions and register macro definitions
+
+main.h --- Global macros and pin definitions
+
+Src/ --- Source Files (.c)
+
+main.c --- Main application entry point & superloop
+
+fonts.c --- Font pixel arrays for drawing text/numbers
+
+gpio.c / i2c.c / rtc.c ---Peripheral control & configuration implementations
+
+ssd1306.c --- Custom display driver (I2C pixel buffer manipulation)
+
+stm32f1xx_it.c --- Hardware interrupt service routines (ISR)
+
+Drivers/ --- STM32F1xx HAL (Hardware Abstraction Layer) libraries
+
+Startup/ --- Assembly startup code for MCU boot sequences
+
+clock.ioc --- STM32CubeMX graphical configuration project file
+
+STM32F103C8TX_FLASH.ld --- Linker script for memory mapping (Flash/SRAM bounds)
 
 
 #Steps to Build the Project
